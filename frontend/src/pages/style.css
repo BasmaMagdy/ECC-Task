@@ -1,0 +1,174 @@
+/*Home*/
+.container {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 35vh;
+}
+
+a {
+    text-decoration: none;
+    font-size: 24px; 
+    color: #24621b; 
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*Categories*/
+h1, h2 {
+    text-align: center;
+}
+
+.category-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove gaps between table cells */
+    margin-top: 20px; /* Space from the heading */
+    text-align: left; /* Left-align content */
+    text-align: center;
+}
+
+/* Style for table headers */
+.category-table th {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 10px;
+    border: 1px solid #ddd; /* Borders between cells */
+    font-size: 16px;
+}
+
+/* Style for table rows */
+.category-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Hover effect on rows */
+.category-table tr:hover {
+    background-color: #f9f9f9; /* Lighter background on hover */
+}
+
+/* Style for the links in the table */
+.category-table a {
+    text-decoration: none;
+    color: #24621b;
+    padding: 5px 10px;
+    border: 1px solid #24621b;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Change appearance of links on hover */
+.category-table a:hover {
+    background-color: #24621b;
+    color: white;
+}
+
+/*product*/
+.products-table {
+    width: 100%; /* Make table full-width */
+    max-width: 800px; /* Optional: Set a max-width for the table */
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse; /* Remove space between cells */
+    text-align: center; /* Align text to the left */
+  }
+  
+  .products-table th,
+  .products-table td {
+    padding: 12px 15px; /* Add padding to table cells */
+    border: 1px solid #ddd; /* Add a border around cells */
+  }
+  
+  .products-table thead {
+    background-color: #f2f2f2; /* Light background for header */
+  }
+  
+  .products-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for even rows */
+  }
+  
+  .products-table tr:hover {
+    background-color: #f1f1f1; /* Add hover effect */
+  }
+  
+  .products-table th {
+    font-weight: bold;
+    text-align: center; /* Center header text */
+  }
+  
+  .products-table td a {
+    text-decoration: none;
+    color: #24621b; /* Set a color for links */
+  }
+  
+  .products-table td a:hover {
+    color: #24621b; /* Darker shade on hover */
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  /*Search*/
+  form {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin: 20px auto; /* Space from top and center the form */
+    max-width: 600px; /* Set a max-width for the form */
+  }
+  
+  input[type="text"] {
+    flex: 1; /* Allow the input to take up remaining space */
+    padding: 10px 15px; /* Add padding for comfort */
+    border: 1px solid #ccc; /* Light gray border */
+    font-size: 20px; /* Increase font size */
+  }
+  
+  input[type="text"]:focus {
+    border-color: #24621b; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /*Create category*/
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between borders */
+    margin-top: 20px; /* Adds space above the table */
+}
+
+td {
+    padding: 10px; /* Adds space inside each cell */
+    border: 1px solid #ccc; /* Light gray border */
+}
+
+label {
+    display: block; /* Ensures label takes full width */
+}
+
+input[type="text"], textarea {
+    width: 90%; /* Full width input */
+    padding: 8px; /* Space inside the input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #24621b; /* Focus border color */
+    outline: none; /* Removes default outline */
+}
+
+button {
+    background-color: #24621b; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Space inside the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:disabled {
+    background-color: #ccc; /* Gray background for disabled button */
+    cursor: not-allowed; /* Not-allowed cursor */
+}
+#Search{
+  padding:7px;
+  margin-right: 5px;
+}

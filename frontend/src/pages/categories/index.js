@@ -4,6 +4,7 @@ import {
     useState
 } from 'react';
 import { Link } from 'react-router-dom';
+import '../style.css'
 
 function Home() {
     const [categories, setCategories] = useState(null);
@@ -36,16 +37,27 @@ function Home() {
                 <Link to="/">back</Link> &nbsp;
                 <Link to="/categories/create">Create category</Link>
             </h2>
-            <h1>categories</h1>
-            <ul>
-                {
-                    categories && categories.map(category => (
-                        <li key={category.id} >
-                            <Link to={`/categories/${category.id}`}>{category.name}</Link>
-                        </li>
-                    ))
-                }
-            </ul>
+            <h1>Categories</h1>
+            <table className="category-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {categories && categories.map(category => (
+                        <tr key={category.id}>
+                            <td>{category.id}</td>
+                            <td>{category.name}</td>
+                            <td>
+                                <Link to={`/categories/${category.id}`}>View</Link>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </>
     );
 }

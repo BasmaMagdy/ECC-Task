@@ -5,6 +5,7 @@ import {
     useState
 } from 'react';
 import { Link } from 'react-router-dom';
+import '../../style.css';
 
 function Create() {
     // State for form inputs
@@ -73,111 +74,135 @@ function Create() {
     if(isLoading) return "Still loading...";
     return (
         <div>
-            <Link to="/products">Back</Link>
-            <h2>Add New Product</h2>
-            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+    <Link to="/products">Back</Link>
+    <h2>Add New Product</h2>
+    {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+    {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Product Name:</label>
-                    <br />
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={product.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+    <form onSubmit={handleSubmit}>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label htmlFor="name">Product Name:</label>
+                    </td>
+                    <td>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={product.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="description">Description:</label>
+                    </td>
+                    <td>
+                        <textarea
+                            id="description"
+                            name="description"
+                            value={product.description}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="code">Code:</label>
+                    </td>
+                    <td>
+                        <input
+                            type="text"
+                            id="code"
+                            name="code"
+                            value={product.code}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="image">Image:</label>
+                    </td>
+                    <td>
+                        <input
+                            type="text"
+                            id="image"
+                            name="image"
+                            value={product.image}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="price">Price:</label>
+                    </td>
+                    <td>
+                        <input
+                            type="number"
+                            id="price"
+                            name="price"
+                            value={product.price}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="quantity">Quantity:</label>
+                    </td>
+                    <td>
+                        <input
+                            type="number"
+                            id="quantity"
+                            name="quantity"
+                            value={product.quantity}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="category">Category:</label>
+                    </td>
+                    <td>
+                        <select
+                            id="category"
+                            name="category_id"
+                            value={product.category_id}
+                            onChange={handleChange}
+                            required
+                        >
+                            {categories.map((category) => (
+                                <option key={category.id} value={category.id}>
+                                    {category.name}
+                                </option>
+                            ))}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colSpan="2">
+                        <button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? 'Adding...' : 'Add Product'}
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
 
-                <div>
-                    <label htmlFor="description">Description:</label>
-                    <br />
-                    <textarea
-                        id="description"
-                        name="description"
-                        value={product.description}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="code">Code:</label>
-                    <br />
-                    <input
-                        type="text"
-                        id="code"
-                        name="code"
-                        value={product.code}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="image">Image:</label>
-                    <br />
-                    <input
-                        type="text"
-                        id="image"
-                        name="image"
-                        value={product.image}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="price">Price:</label>
-                    <br />
-                    <input
-                        type="number"
-                        id="price"
-                        name="price"
-                        value={product.price}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="quantity">quantity:</label>
-                    <br />
-                    <input
-                        type="number"
-                        id="quantity"
-                        name="quantity"
-                        value={product.quantity}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="category">category:</label>
-                    <br />
-                    <select
-                        id="category"
-                        name="category_id"
-                        value={product.category_id}
-                        onChange={handleChange}
-                        required
-                    >
-                        {categories.map((category) => (
-                            <option key={category.id} value={category.id}>
-                                {category.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Adding...' : 'Add Product'}
-                </button>
-            </form>
-        </div>
     );
 }
 

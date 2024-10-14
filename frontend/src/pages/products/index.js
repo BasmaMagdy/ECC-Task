@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {
-    useEffect,
     useLayoutEffect,
     useRef,
     useState
 } from 'react';
 import { Link } from 'react-router-dom';
+import '../style.css';
 
 function Home() {
     const [products, setProducts] = useState(null);
@@ -13,7 +13,7 @@ function Home() {
     const [error, setError] = useState("");
     const q = useRef(null);
     const getProducts = (q="") => {
-        let url = q == "" ? "http://127.0.0.1:8000/api/products" : `http://127.0.0.1:8000/api/products/search?q=${q}`;
+        let url = q === "" ? "http://127.0.0.1:8000/api/products" : `http://127.0.0.1:8000/api/products/search?q=${q}`;
         axios.get(url)
             .then((response) => {
                 // Handle the response and set the JSON products in the state
@@ -48,18 +48,29 @@ function Home() {
                 <Link to="/products/create">Create Product</Link>
             </h2>
             <form onSubmit={handleSubmit}>
-                <label>Search</label>
-                <input name="Search" id="Search" ref={q} />
+                <input name="Search" id="Search" placeholder='Search' ref={q} />
                 <button type="submit">Search</button>
             </form>
             <h1>Products</h1>
-            <ul>
-                {products && products.map(product => (
-                    <li key={product.id} >
-                        <Link to={`/products/${product.id}`}>{product.name}</Link>
-                    </li>
-                ))}
-            </ul>
+            <table className="products-table">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {products && products.map(product => (
+      <tr key={product.id}>
+        <td>
+          <Link to={`/products/${product.id}`}>
+            {product.name}
+          </Link>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 
         </>
     );

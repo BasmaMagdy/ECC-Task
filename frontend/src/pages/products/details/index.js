@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {
-    useEffect,
     useLayoutEffect,
     useState
 } from 'react';

@@ -5,6 +5,7 @@ import {
     useState
 } from 'react';
 import { Link } from 'react-router-dom';
+import '../../style.css';
 
 function Create() {
     // State for form inputs
@@ -47,42 +48,55 @@ function Create() {
     };
     return (
         <div>
-            <Link to="/categories">Back</Link>
-            <h2>Add New category</h2>
-            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+    <Link to="/categories">Back</Link>
+    <h2>Add New Category</h2>
+    {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+    {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">category Name:</label>
-                    <br />
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={category.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+    <form onSubmit={handleSubmit}>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label htmlFor="name">Category Name:</label>
+                    </td>
+                    <td>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={category.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label htmlFor="description">Description:</label>
+                    </td>
+                    <td>
+                        <textarea
+                            id="description"
+                            name="description"
+                            value={category.description}
+                            onChange={handleChange}
+                            required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td colSpan="2">
+                        <button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? 'Adding...' : 'Add Category'}
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
 
-                <div>
-                    <label htmlFor="description">Description:</label>
-                    <br />
-                    <textarea
-                        id="description"
-                        name="description"
-                        value={category.description}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Adding...' : 'Add category'}
-                </button>
-            </form>
-        </div>
     );
 }
 
